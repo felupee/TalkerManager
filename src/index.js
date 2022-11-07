@@ -29,3 +29,9 @@ app.get('/talker/:id', async (req, res) => {
   if (talker) return res.status(200).json(talker[0]);
   res.status(404).json({ message: 'Pessoa palestrante não encontrada' });
 });
+
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+  const token = talkers.postTalkerLogin(email, password);
+  res.status(200).json({ token: `${token}` });
+});
