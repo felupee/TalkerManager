@@ -17,6 +17,17 @@ const readTalkersFile = async () => {
     return talker;
   };
 
+  const getTalkerById = async (id) => {
+    const talker = await readTalkersFile();
+    const talkerExists = talker.some((pessoa) => pessoa.id === id);
+
+    if (talkerExists) {
+      return talker.filter((talkerr) => talkerr.id === id);
+    }
+    return false;
+  };
+
   module.exports = {
     getAllTalker,
+    getTalkerById,
   };
