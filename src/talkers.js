@@ -13,6 +13,14 @@ const readTalkersFile = async () => {
     }
   };
 
+  const writeTalkersFile = async (talker) => {
+    try {
+      await fs.writeFile(join(__dirname, path), JSON.stringify(talker));
+    } catch (error) {
+      return null;
+    }
+  };
+
   const embaralha = (string) => {
     const charactersInOrder = string.split('');
     const shuffleArray = [];
@@ -48,8 +56,20 @@ const readTalkersFile = async () => {
     return tokenFormatado;
   };
 
+  const createTalker = async (talkerRequest) => {
+    const talker = await readTalkersFile();
+    const pessoa = {
+      id: talker[talker.length - 1].id + 1,
+      ...talkerRequest,
+    };
+    talker.push(pessoa);
+    await writeTalkersFile(talker);
+    return pessoa;
+  };
+
   module.exports = {
     getAllTalker,
     getTalkerById,
     postTalkerLogin,
+    createTalker,
   };
