@@ -44,7 +44,7 @@ const readTalkersFile = async () => {
   const postTalkerLogin = (email, password) => {
     const token = jwt.sign(email, password);
     const tokenEmbaralhado = embaralha(token);
-    const tokenFormatado = tokenEmbaralhado.substring(81, 97);
+    const tokenFormatado = tokenEmbaralhado.substring(0, 16);
     return tokenFormatado;
   };
 

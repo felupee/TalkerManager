@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const talkers = require('./talkers');
+const fieldValidation = require('./middlewares/fieldValidation');
+const valuesValidation = require('./middlewares/valuesValidation');
+const errorHandle = require('./middlewares/error');
 
 const app = express();
 app.use(bodyParser.json());
@@ -11,10 +14,6 @@ const PORT = '3000';
 // não remova esse endpoint, e para o avaliador funcionarr
 app.get('/', (_request, response) => {
   response.status(HTTP_OK_STATUS).send();
-});
-
-app.listen(PORT, () => {
-  console.log('Online');
 });
 
 app.get('/talker', async (req, res) => {
@@ -30,8 +29,13 @@ app.get('/talker/:id', async (req, res) => {
   res.status(404).json({ message: 'Pessoa palestrante não encontrada' });
 });
 
-app.post('/login', (req, res) => {
+app.post('/login', fieldValidation, valuesValidation, (req, res) => {
   const { email, password } = req.body;
   const token = talkers.postTalkerLogin(email, password);
   res.status(200).json({ token: `${token}` });
+});
+
+app.use(errorHandle);
+app.listen(PORT, () => {
+  console.log('Online');
 });
