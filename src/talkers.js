@@ -93,10 +93,16 @@ const readTalkersFile = async () => {
     return result;
   };
 
+  const deleteTalker = async (id) => {
+    const talker = await readTalkersFile();
+    const talkerDelete = talker.filter((pessoa) => pessoa.id !== Number(id));
+    await writeTalkersFile(talkerDelete);
+  };
   module.exports = {
     getAllTalker,
     getTalkerById,
     postTalkerLogin,
     createTalker,
     putTalker,
+    deleteTalker,
   };

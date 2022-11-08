@@ -71,6 +71,12 @@ app.put('/talker/:id',
   res.status(200).send(changedTalker);
 });
 
+app.delete('/talker/:id', tokenValidation, async (req, res) => {
+  const { id } = req.params;
+  await talkers.deleteTalker(id);
+  res.status(204).end();
+});
+
 app.use(errorHandle);
 app.listen(PORT, () => {
   console.log('Online');
