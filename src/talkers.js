@@ -21,6 +21,27 @@ const readTalkersFile = async () => {
     }
   };
 
+  const putFile = async (pessoa, id) => {
+    try {
+      const arrayTalkers = await readTalkersFile();
+      let changedTalker;
+  
+      for (let i = 0; i < arrayTalkers.length; i += 1) {
+        if (arrayTalkers[i].id === Number(id)) {
+          arrayTalkers[i].name = pessoa.name;
+          arrayTalkers[i].age = pessoa.age;
+          arrayTalkers[i].talk.watchedAt = pessoa.talk.watchedAt;
+          arrayTalkers[i].talk.rate = pessoa.talk.rate;
+          changedTalker = arrayTalkers[i];
+        }
+      }
+      await fs.writeFile(join(__dirname, path), JSON.stringify(arrayTalkers));
+      return changedTalker;
+    } catch (error) {
+      return null;
+    }
+  };
+
   const embaralha = (string) => {
     const charactersInOrder = string.split('');
     const shuffleArray = [];
@@ -67,9 +88,15 @@ const readTalkersFile = async () => {
     return pessoa;
   };
 
+  const putTalker = async (pessoa, id) => {
+    const result = await putFile(pessoa, id);
+    return result;
+  };
+
   module.exports = {
     getAllTalker,
     getTalkerById,
     postTalkerLogin,
     createTalker,
+    putTalker,
   };

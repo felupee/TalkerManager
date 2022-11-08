@@ -55,6 +55,22 @@ app.post('/talker',
   res.status(201).send(newTalker);
 });
 
+app.put('/talker/:id',
+  tokenValidation,
+  nameTalkerValidation,
+  ageTalkerValidation,
+  talkTalkerValidation,
+  watchedAtTalkerValidation,
+  rateTalkerValidation,
+  async (req, res) => {
+  const { id } = req.params;
+  const pessoa = {
+    ...req.body,
+  };
+  const changedTalker = await talkers.putTalker(pessoa, id);
+  res.status(200).send(changedTalker);
+});
+
 app.use(errorHandle);
 app.listen(PORT, () => {
   console.log('Online');
