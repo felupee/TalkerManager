@@ -1,8 +1,6 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/94487469/232790215-b8c0b61e-6390-46bd-bee4-f03f7648b756.png">
 </p>
-# Talker Manager :microphone: :bust_in_silhouette:
-
 
 Olá, seja bem vindo ao repositório do projeto Talker Manager! Aqui você irá aprender como instalar e testar o projeto na sua máquina, mas caso queira uma explicação mais detalhada sobre o Talker Manager e suas funcionalidades, recomendo você a visitar meu portifólio clicando [aqui](https://felupee.github.io/back-end/projetos/talker-manager/talker-manager.html).
 
