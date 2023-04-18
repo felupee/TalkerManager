@@ -1,6 +1,4 @@
-<p align="center">
 ![Talker Manager (1)](https://user-images.githubusercontent.com/94487469/232790215-b8c0b61e-6390-46bd-bee4-f03f7648b756.png)
-</p>
 # Talker Manager :microphone: :bust_in_silhouette:
 
 
