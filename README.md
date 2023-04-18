@@ -3,7 +3,7 @@
 </p>
 
 
-Olá, seja bem vindo ao repositório do projeto Talker Manager! Aqui você irá aprender como instalar e testar o projeto na sua máquina, mas caso queira uma explicação mais detalhada sobre o Talker Manager e suas funcionalidades, recomendo você a visitar meu portifólio clicando [aqui](https://felupee.github.io/back-end/projetos/talker-manager/talker-manager.html).
+Olá, seja bem vindo ao repositório do projeto Talker Manager! Aqui você irá aprender como instalar e testar o projeto na sua máquina, mas caso queira uma explicação mais detalhada sobre o Talker Manager e suas funcionalidades, sem precisar baixar e executar o projeto, recomendo você a visitar meu portifólio clicando [aqui](https://felupee.github.io/back-end/projetos/talker-manager/talker-manager.html).
 
 ## Como usar
 
